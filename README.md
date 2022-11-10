@@ -1,22 +1,47 @@
-# TL-Backend
+![Logo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/th5xamgrr6se0x5ro4g6.png)
 
-The backend of Toxiclibrary website  
+# 4UP Cloud
 
-## Development
-Clone this repository  
+Best files cloud
+
+## Run Locally
+
+Clone the project
+
 ```bash
-git clone https://github.com/ToxicLibrary/tl-backend.git
+git clone https://github.com/Ameriq8/4up-cloud.git
 ```
 
-install packages
+Go to the project directory
+
 ```bash
+cd 4up-cloud
+```
+
+Install dependencies
+
+```bash
+npm install
+# or
 yarn install
 ```
- 
-run in development mode
+
+Start the server
+
 ```bash
-yarn dev
+npm start
+# or
+yarn start
 ```
 
-check for TODO in the code  
-discuss the development with the team in Discord  # 4up.4meg
+  
+## Contributors
+
+- [@Ameriq8](https://github.com/Ameriq8/)
+
+  
+## License
+
+[License](https://choosealicense.com/licenses/mit/)
+
+  
