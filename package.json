@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Ameriq8/DevCrew.git"
+    "url": "git+https://github.com/Ameriq8/4up-cloud"
   },
   "author": "Ameriq8",
-  "license": "ISC",
+  "license": "AGPL-3.0",
   "bugs": {
-    "url": "https://github.com/Ameriq8/DevCrew/issues"
+    "url": "https://github.com/Ameriq8/4up-cloudissues"
   },
-  "homepage": "https://github.com/Ameriq8/DevCrew#readme",
+  "homepage": "https://github.com/Ameriq8/4up-cloud#readme",
   "dependencies": {
     "@faker-js/faker": "^6.3.1",
     "@prisma/client": "^4.4.0",
