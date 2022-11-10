@@ -42,6 +42,6 @@ yarn start
   
 ## License
 
-[License](https://choosealicense.com/licenses/mit/)
+[License](https://github.com/Ameriq8/4up-cloud/blob/main/license)
 
   
