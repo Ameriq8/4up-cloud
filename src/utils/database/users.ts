@@ -3,8 +3,7 @@ import prisma from '@utils/prisma';
 import { User } from '@root/types';
 
 export const get = async (where: Prisma.UserWhereInput): Promise<User> => {
-  const user = await prisma.user.findFirst({ where });
-  return user;
+  return await prisma.user.findFirst({ where });
 };
 
 // export const getUnique = async (where: Prisma.UserWhereUniqueInput): Promise<User> => {
@@ -17,11 +16,9 @@ export const getById = async (id: number): Promise<User> => {
 };
 
 export const getAllUsers = async () => {
-  const users = await prisma.user.findMany();
-  return users;
+  return await prisma.user.findMany();
 };
 
 export const createUser = async (data: Prisma.UserCreateInput): Promise<User> => {
-  const user = await prisma.user.create({ data });
-  return user;
+  return await prisma.user.create({ data });
 };
