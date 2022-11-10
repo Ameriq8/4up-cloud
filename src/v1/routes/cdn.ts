@@ -22,7 +22,7 @@ router.use(
     safeFileNames: true,
     abortOnLimit: true,
     useTempFiles: true,
-    tempFileDir: 'tmp/',
+    tempFileDir: path.resolve('tmp/'),
     uploadTimeout: 0,
   }),
 );
