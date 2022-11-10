@@ -2,32 +2,38 @@ import jwt from 'jsonwebtoken';
 import { UserToken } from '@root/types';
 import config from '@root/config';
 
-export const generateToken = async (type: string, data: object): Promise<string> => {
+interface generateTokenData {
+  id: number;
+}
+
+type tokenType = 'AUTH' | 'FORGET' | 'VERIFY';
+
+export const generateToken = async (type: tokenType, data: generateTokenData): Promise<string> => {
   switch (type) {
-    case 'auth':
-      return await generateJwt(data, config.secrets.auth_token_secret, '7d', 'HS256');
+    case 'AUTH':
+      return await generateJwt(data, config.SECRETS.AUTH_TOKEN_SECRET, '7d', 'HS256');
 
-    case 'forget':
-      return await generateJwt(data, config.secrets.forget_token_secret, '1h', 'HS256');
+    case 'FORGET':
+      return await generateJwt(data, config.SECRETS.FORGET_TOKEN_SECRET, '1h', 'HS256');
 
-    case 'verify':
-      return await generateJwt(data, config.secrets.verify_token_secret, '1h', 'HS256');
+    case 'VERIFY':
+      return await generateJwt(data, config.SECRETS.VERIFY_TOKEN_SECRET, '1h', 'HS256');
 
     default:
       return null;
   }
 };
 
-export const validateToken = async (type: string, token: string): Promise<UserToken | any> => {
+export const validateToken = async (type: tokenType, token: string): Promise<UserToken | any> => {
   switch (type) {
-    case 'auth':
-      return await verifyTokenMethod(token, config.secrets.auth_token_secret);
+    case 'AUTH':
+      return await verifyTokenMethod(token, config.SECRETS.AUTH_TOKEN_SECRET);
 
-    case 'forget':
-      return await verifyTokenMethod(token, config.secrets.forget_token_secret);
+    case 'FORGET':
+      return await verifyTokenMethod(token, config.SECRETS.FORGET_TOKEN_SECRET);
 
-    case 'verify':
-      return await verifyTokenMethod(token, config.secrets.verify_token_secret);
+    case 'VERIFY':
+      return await verifyTokenMethod(token, config.SECRETS.VERIFY_TOKEN_SECRET);
 
     default:
       return null;
@@ -35,7 +41,7 @@ export const validateToken = async (type: string, token: string): Promise<UserTo
 };
 
 export const generateJwt = (
-  data: object,
+  data: generateTokenData,
   secret: string,
   expire: string,
   algorithm: string,
