@@ -1,6 +1,5 @@
 import { Request } from 'express';
-import {} from 'express-fileupload';
-import { Role } from './constants';
+import { Role, SessionType } from './constants';
 
 export interface User {
   id: number;
@@ -10,8 +9,12 @@ export interface User {
   verified: boolean;
   role: Role;
   files?: File[];
+  plan: number;
   avatar: string;
   bio?: string;
+  requests: number;
+  storage: number;
+  deleted: boolean;
   timestamp: Date;
 }
 
@@ -23,32 +26,47 @@ export interface File {
   size: String;
   userId: number;
   downloads: number;
+  deleted: boolean;
   published: boolean;
   timestamp: Date;
 }
 
+export interface CDNRequest extends Request {
+  body: any;
+  params: any;
+  user: User;
+  files?: any;
+}
+
 export interface UserToken {
-  id: string;
+  id: number;
   iat: number;
   exp: number;
   message?: string;
 }
 
-export interface FilesBodyType {
-  name: string;
-  data: Buffer;
-  size: number;
-  encoding: string;
-  tempFilePath: string;
-  truncated: boolean;
-  mimetype: string;
-  md5: string;
-  mv: Function;
+export interface HashedObject {
+  iv: string;
+  data: string;
 }
 
-export interface CDNRequest extends Request {
-  body?: any;
-  params?: any;
-  user: User;
-  files?: FilesBodyType[] | FilesBodyType;
+export interface Session {
+  id: number;
+  userId: number;
+  token: string;
+  data: string;
+  iv: string;
+  type: SessionType;
+  expire: Date;
+  timestamp: Date;
+}
+
+export interface BusinessPlan {
+  id: number;
+  userId: number;
+  storage: number;
+  limitedPartSize: number;
+  gateawayRequets: number;
+  gateawayLimitPartSize: number;
+  manageAccessPremissionForUsers: boolean;
 }

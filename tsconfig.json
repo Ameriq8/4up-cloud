@@ -42,7 +42,7 @@
   },
   "include": [
     "src/**/*",
-    "src/test",
+    "src/types.ts",
   ],
   "exclude": [
     "node_modules",

@@ -1,4 +1,4 @@
-import prisma from '@utils/prisma';
+import prisma from '../src/utils/prisma';
 
 (async () => {
   await prisma.user.create({
