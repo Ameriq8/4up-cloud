@@ -2,7 +2,7 @@
 
 # 4UP Cloud
 
-Best files cloud
+4Up Cloud is Firebase and Supabase alternative.
 
 ## Run Locally
 
