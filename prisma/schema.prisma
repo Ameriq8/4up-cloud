@@ -33,6 +33,7 @@ model User {
   role      Int       @default(0) @db.SmallInt
   files     File[]
   sessions  Session[]
+  logs      UserLog[]
   plan      Int       @default(0) @db.SmallInt
   avatar    String?   @db.VarChar
   bio       String?   @db.VarChar(320)
@@ -53,6 +54,14 @@ model Session {
   expire    DateTime
   timestamp DateTime @default(now()) @db.Timestamp(6)
 }
+
+model UserLog {
+  id        Int      @id @default(autoincrement())
+  User      User?    @relation(fields: [userId], references: [id])
+  userId    Int?
+  content   String
+  timestamp DateTime @default(now()) @db.Timestamp(6)
+} 
 
 model BusinessPlan {
   id                             Int     @id @default(autoincrement())
